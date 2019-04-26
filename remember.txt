@@ -1,0 +1,674 @@
+第五个月node js
+1、mongod --dbpath "D:\MongoDB\1808A5\data"  --logpath "D:\MongoDB\1808A5\log\log.txt"  --install -serviceName "MongoDB" 
+启动mongo
+net  start MongoDB
+2、联网http://172.16.254.254:8081/?userip=172.16.99.8&usermac=58696ce014e7&info=
+3、layui网址：https://www.layui.com/doc/
+4、MongoDB的多表关联查询：https://blog.csdn.net/watersprite_ct/article/details/78500997
+5、
+实现影片的管理功能
+	影片的名称
+	导演
+	编辑
+	主演
+	简介
+	上映时间
+	宣传图片 
+	
+	实现添加   列表的显示（分页）  删除   编辑
+ enctype="multipart/form-data"
+6、商品管理系统
+	商品名称
+	商品价格
+	商品库存
+	商品分类
+	商品简介
+	上架时间
+7、
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+第六个月 vue.js
+1、ECMAScript6:
+      	 http://www.nodeclass.com/api/ECMAScript6.html#let
+	https://vuejs.org/v2/guide/installation.html
+       	 https://cn.vuejs.org/
+2、
+一   ECMAScript6
+let
+1、let不像var那样，它没有变量提升
+2、所声明的变量，只在let命令所在的代码块内有效
+3、let声明的变量不会挂在window上
+     var 声明的全局对象会存在于window
+4、let不能重复声明
+const
+1、const也用来声明变量，但是声明的是常量。一旦声明，常量的值就不能改变。（通常大写声明）
+2、不像var那样，它不会发生变量提升
+3、声明的变量不会挂在window上
+
+
+补充：
+二.定义变量使用let(类似var)
+javascript中的var:
+var声明的变量会有变量提升
+var没有块级作用域
+var可以多次重复定义一个变量
+这些声明在后天开发语言是不允许的,为了规范变量的声明ES6退出了新的关键字let代替var的声明变量.
+let的特点:
+let声明的变量不会有变量提升
+let存在块级作用域
+let不能多次重复定义变量
+三.定义常量const
+常量是指不会改变的数据.
+常量const的特点:
+值不能再改变
+常量具有块级作用域
+不要在块级作用域中声明常量
+没有变量提升,要先声明后使用
+不可以声明同名的常量
+一定要赋初始值,否则会报错
+如果声明的是常量是一个对象,只要对象的地址不改变,其内部的属性可以改变
+变量提升：
+https://blog.csdn.net/xuehangongzi/article/details/80658189
+https://www.cnblogs.com/xiaoyun1121/p/6067367.html
+
+VS Code系列：（三）插件篇：
+https://blog.csdn.net/Bumphy/article/details/79248361
+
+0301am
+变量的解构赋值:
+var [foo] = [];//undefined
+var [foo] = 1;//报错
+var [foo] = 'Hello';//H
+var [foo] = false;//报错
+var [foo] = NaN;//报错
+var [bar, foo] = [1];console.log(bar)//输出1；console.log(foo)//输出undefined
+以上几种情况都属于解构不成功，foo的值都会等于undefined。另一种情况是不完全解构。
+
+
+如果对undefined或null进行解构，会报错。
+// 报错
+var [foo] = undefined;
+var [foo] = null;
+解构不仅可以用于数组，还可以用于对象。
+var { foo, bar } = { foo: "aaa", bar: "bbb" };
+foo // "aaa"
+bar // "bbb"
+对象的解构与数组有一个重要的不同。数组的元素是按次序排列的，变量的取值由它的位置决定；而对象的属性没有次序，变量必须与属性同名，才能取到正确的值。
+
+1、解构
+从数组和对象中提取值，对变量进行赋值，这被称为解构
+
+	（1）数组的解构赋值：从数组中提取值，按照对应位置，对变量赋值。
+	（2）解构赋值允许指定默认值。var [foo = true] = [];
+				foo // true
+	（3）对象的解构赋值：而对象的属性没有次序，变量必须与属性同名	，才能取到正确的值。
+	var { bar, foo } = { foo: "aaa", bar: "bbb" };
+	foo // "aaa"
+	bar // "bbb"
+
+	var { baz } = { foo: "aaa", bar: "bbb" };
+	baz // undefined
+
+	如果变量名与属性名不一致，必须写成下面这样：
+	var { foo: baz } = { foo: "aaa", bar: "bbb" };
+	baz // "aaa"
+	（4）对象的解构也可以指定默认值：var { x = 3 } = {};
+				x // 3
+	（5）错误写法：
+		var x;
+		{x} = {x:1};
+		// SyntaxError: syntax error
+		上面代码的写法会报错，因为JavaScript引擎会将{x}理解成		一个代码块，从而发生语法错误。只有不将大括号写在行首		，避免JavaScript将其解释为代码块，才能解决这个问题。
+	// 正确的写法
+	({x}) = {x:1};
+	// 或者
+	({x} = {x:1});
+2、字符串模板（超级字符串）
+模板字符串（template string）是增强版的字符串，用反引号（`）标识。它可以当作普通字符串使用，也可以用来定义多行字符串，或者在字符串中嵌入变量。
+3、字符串新增方法（API）
+includes()：返回布尔值，表示是否找到了参数字符串。
+startsWith()：返回布尔值，表示参数字符串是否在源字符串的头部。
+endsWith()：返回布尔值，表示参数字符串是否在源字符串的尾部。
+repeat():返回一个新的字符串，表示将原字符串重复n次；
+4、数组新增方法
+（1）Array.from()用于将两类对象转为真正的数组：类似数组的对象
+（2）Array.of()方法用于将一组值，转换为数组。
+（3）数组实例的find()用于找出第一个符合条件的数组元素。
+（4）数组实例的findIndex()的用法与find()非常类似，返回第一个符合条件的数组元素的位置，如果所有元素都不符合条件，则返回-1。
+（5）fill()使用给定值，填充一个数组。
+	['a', 'b', 'c'].fill(7)
+	// [7, 7, 7]
+
+	new Array(3).fill(7)
+	// [7, 7, 7]
+
+fill()还可以接受第二个和第三个参数，用于指定填充的起始位置和结束位置。\
+['a', 'b', 'c'].fill(7, 1, 2)//包头不包尾
+// ['a', 7, 'c']
+补充：
+ES6提供三个新的方法——entries()，keys()和values()——用于遍历数组。
+它们都返回一个遍历器，可以用for...of循环进行遍历，唯一的区别是keys()是对键名的遍历、values()是对键值的遍历，entries()是对键值对的遍历。
+
+5、对象的扩展
+	对象的简介表示法：
+	（1）属性名和属性值相同 可以｛x,y｝,等同于｛x:x , y:y｝
+	（2）在对象中的方法可以省略 function
+	var Person = {
+
+ 	 name: '张三',
+
+ 	 //等同于birth: birth
+	  birth,
+
+ 	 // 等同于hello: function ()...
+ 	 hello() { console.log('我的名字是', this.name); }
+0
+	};
+
+0301pm
+（1）Object.is()用来比较两个值是否严格相等。它与严格比较运算符（===）的行为基本一致，不同之处只有两个：一是+0不等于-0，二是NaN等于自身。
+
++0 === -0 //true
+NaN === NaN // false
+
+Object.is(+0, -0) // false
+Object.is(NaN, NaN) // true
+
+（2）Object.assign方法用来将源对象（source）的所有可枚举属性，复制到目标对象（target）。
+注意，如果目标对象与源对象有同名属性，或多个源对象有同名属性，则后面的属性会覆盖前面的属性。
+	var target = { a: 1, b: 1 };
+
+	var source1 = { b: 2, c: 2 };
+	var source2 = { c: 3 };
+
+	Object.assign(target, source1, source2);
+	target // {a:1, b:2, c:3}
+
+6、Symbol
+ES6引入了一种新的原始数据类型Symbol，表示独一无二的ID。它通过Symbol函数生成。
+
+7、箭头函数
+ES6允许使用“箭头”（=>）定义函数。
+（1）函数体内的this对象，绑定定义时所在的对象，而不是使用时所在的对象。（上一层的环境）
+（2）不可以当作构造函数，也就是说，不可以使用new命令，否则会抛出一个错误。
+（3）不可以使用arguments对象，该对象在函数体内不存在。
+
+8、set
+ES6提供了新的数据结构Set。它类似于数组，但是成员的值都是唯一的，没有重复的值。
+
+Set数据结构有以下方法:
+add(value)：添加某个值，返回Set结构本身。
+delete(value)：删除某个值，返回一个布尔值，表示删除是否成功。
+has(value)：返回一个布尔值，表示该值是否为Set的成员。
+clear()：清除所有成员，没有返回值。
+
+map类对象
+
+补充：
+解构赋值不仅适用于var命令，也适用于let和const命令。
+
+0304am
+1、全局安装cli
+cnpm install --global vue-cli
+2、# 创建一个基于 webpack 模板的新项目
+$ vue init webpack my-project 
+补充：
+（1）可以看到在 Vue 构造器中有一个el 参数，它是 DOM 元素中的 id。
+（2）data 用于定义属性，实例中有三个属性分别为：site、url、alexa。
+         methods 用于定义的函数，可以通过 return 来返回函数值。
+         {{ }} 用于输出对象属性和函数返回值。
+（3）下载sass
+//cnpm install node-sass  --save
+//cnpm i less less-loader -D
+cnpm install sass-loader node-sass vue-style-loader --D
+
+0304pm
+7、map
+	它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。
+      	也就是说，Object结构提供了“字符串—值”的对应，Map结构提供了“值—值”的对应。
+        Map数据结构有以下属性和方法。
+	size：返回成员总数。
+	set(key, value)：设置key所对应的键值，然后返回整个Map结构。如果key已经有值，则键值会被更新，否则就新生成该键。
+	get(key)：读取key对应的键值，如果找不到key，返回undefined。
+	has(key)：返回一个布尔值，表示某个键是否在Map数据结构中。
+	delete(key)：删除某个键，返回true。如果删除失败，返回false。
+	clear()：清除所有成员，没有返回值。
+0305am
+key：管理可复用的元素
+这两个元素是完全独立的，不要复用它们”。只需添加一个具有唯一值的 key 属性即可
+v-if和v-show
+1.v-if是移除元素
+v-show是控制它的显示和隐藏display：none
+2.v-show不管初始条件是什么，元素总是会被渲染，并且只是简单地基于 CSS 进行切换
+v-if如果在初始渲染时条件为假，则什么也不做——直到条件第一次变为真时，才会开始渲染条件块
+3、计算属性：
+计算属性是基于它们的依赖进行缓存的。只在相关依赖发生改变时它们才会重新求值。
+
+0306am
+1、在绑定的事件中 获得 事件对象 （event） 可通过$event传递
+2、事件修饰符：
+.stop 阻止事件向上传递
+.prevent （预防）取消默认事件
+.capture （俘获、夺得）  优先触发
+.self  只有点击自己的时候才会触发，点击其他元素发生事件冒泡或事件捕获时，会把该元素跳过去
+.once 只触发一次
+.passive （被动的、消极的）优化滚动事件
+
+3、promise:
+所谓Promise对象，就是代表了未来某个将要发生的事件（通常是一个异步操作）。它的好处在于，有了Promise对象，就可以将异步操作以同步操作的流程表达出来，避免了层层嵌套的回调函数。
+通过promise 可以把异步操作的结果（未来产生的结果）在任何时机获取到。
+var a;
+      var p=new Promise(function(resolve,reject){
+        a=10;
+        if(a){
+          resolve(a)
+        }else{
+          reject('error')
+        }
+      })
+      var b=p.then(function(res){
+        return res
+        // console.log(res)
+      })
+      console.log(b);
+
+4、计算属性 和 侦听的区别：
+watch 不要滥用，它消耗性能。同样，可以使用计算属性代替就使用计算属性代替。watch可以进行异步操作，计算属性是基于它们的依赖进行缓存的。性能高
+
+首先它们都是以Vue的依赖追踪机制为基础的，它们的共同点是：都是希望在依赖数据发生改变的时候，被依赖的数据根据预先定义好的函数，发生“自动”的变化。 
+
+但watch和computed也有明显不同的地方： 
+
+watch和computed各自处理的数据关系场景不同 
+
+(1).watch擅长处理的场景：一个数据影响多个数据 
+
+(2).computed擅长处理的场景：一个数据受多个数据影响
+
+
+--------------------- 
+作者：const_ly 
+来源：CSDN 
+原文：https://blog.csdn.net/const_ly/article/details/79525689 
+版权声明：本文为博主原创文章，转载请附上博文链接！
+
+computed计算属性是用来声明式的描述一个值依赖了其它的值。当你在模板里把数据绑定到一个计算属性上时，Vue 会在其依赖的任何值导致该计算属性改变时更新 DOM。这个功能非常强大，它可以让你的代码更加声明式、数据驱动并且易于维护。 
+
+watch监听的是你定义的变量,当你定义的变量的值发生变化时，调用对应的方法。
+--------------------- 
+作者：前端修仙 
+来源：CSDN 
+原文：https://blog.csdn.net/zfz5720/article/details/79550882 
+版权声明：本文为博主原创文章，转载请附上博文链接！
+
+
+补充：
+按键码：
+为了在必要的情况下支持旧浏览器，Vue 提供了绝大多数常用的按键码的别名：
+.enter
+.tab
+.delete (捕获“删除”和“退格”键)
+.esc
+.space
+.up
+.down
+.left
+.right
+有一些按键 (.esc 以及所有的方向键) 在 IE9 中有不同的 key 值, 如果你想支持 IE9，这些内置的别名应该是首选。
+
+系统修饰键
+2.1.0 新增
+可以用如下修饰符来实现仅在按下相应按键时才触发鼠标或键盘事件的监听器。
+.ctrl
+.alt
+.shift
+.meta
+.exact 修饰符
+2.5.0 新增
+.exact 修饰符允许你控制由精确的系统修饰符组合触发的事件
+<!-- 即使 Alt 或 Shift 被一同按下时也会触发 -->
+<button @click.ctrl="onClick">A</button>
+
+<!-- 有且只有 Ctrl 被按下的时候才触发 -->
+<button @click.ctrl.exact="onCtrlClick">A</button>
+
+<!-- 没有任何系统修饰符被按下的时候才触发 -->
+<button @click.exact="onClick">A</button>。
+鼠标按钮修饰符
+2.2.0 新增
+.left
+.right
+.middle
+这些修饰符会限制处理函数仅响应特定的鼠标按钮。
+
+0307pm
+父组件给子组件传值
+父组件调用子组件时，在子组件中使用 属性名=传值
+在子组件中使用props：【属性名】来接收父组件传过来的值
+注意：//父组件传过来的值，不能在子组件里改，否则会出现父、子组件数据不同步，这个现象也叫单向数据流。如果一定要修改，那么就在子组件，设置新的变量接一下这个props(这里要用到slice(0)这个方法)，然后改这个新变量
+
+
+0308pm
+
+子组件向父组件传值：
+在子组件中使用 this.$emit(),第一个参数给子组件绑定一个自定义事件，第二个参数传值
+在父组件中使用子组件时，声明一个 子组件自定义事件的处理函数，并在这个函数的参数中，获得传过来的值
+
+
+作业1
+1、输入框封装成一个子组件1
+
+2、父组件里面 有 所有任务，完成任务，未完成任务
+
+3 、封装子组件2，它专门用来渲染列表
+
+
+作业2
+
+1、父组件里面有 4个按钮。
+
+2、点击每个按钮的时候，弹出子组件，在一个子组件中，通过插槽弹出4种提示框样式。
+
+0311pm
+生命周期
+beforeCreated：
+组件创建之前，无法获得组件中的数据，这个时候，可以做一些loading效果					
+created：
+这个组件被创建出完成了
+
+beforeMount：
+组件创建完成，在渲染到页面之前
+
+mounted:
+组件创建完成，并渲染到页面
+
+beforeDestroy
+组件卸载之前（卸载就是组件被移除）
+
+detroyed:
+组件卸载完成
+
+
+0314am
+路由传参数：
+1、router-link 里面用 :to="'地址'+参数"
+2、在路由字典里面 配置被跳转的路由地址的  路径/:id
+3、在组件中 获得传递过来的参数 {{$route.params.id}}
+
+0314pm
+1、路由的两种模式
+mode:hash  默认的路由模式
+mode :history    h5路由模式就是不带#  但是在使用之前 需要后台配置去支持
+
+2、组件内路由守卫
+beforeRouteEnter  因为当守卫执行前，组件实例还没被创建，不能访问this
+(淘宝不登录看不了购物车)
+
+beforeRouteUpdate  在嵌套路由中  比如：/home/news    跳到/home/olds   可以访问this
+（填表，按步骤填，不按步骤填不了下一个信息）
+
+beforeRouteLeave    导航离开该组件的对应路由是调用    可以访问this
+（跳转页面，用户是否真正想要离开本页面跳到下一个页面）
+
+
+0315am
+axios
+1、涉及Dom操作 请求数据放到 mounted中，不涉及的Dom的 ，请求的数据放到created中
+
+
+补充：
+路由传参，顾名思义分两步走（1）引路由（2）传参数
+路由传参共有两种方式params和query，两者的区别是：
+（1）用法上的：
+params是通过name引入路由，query通过path引入路由
+$router.push({name:'',params:{id:参数，id2:参数2}})
+$router.push({path:'',query:{id:参数，id2:参数2}})
+接受参数的方法是类似的：
+this.$route.params.id   this.$route.query.id
+（2）显示上的：
+params相当于ajax中的post  在地址栏中不显示参数
+query相当于get  在地址栏中显示参数
+
+0315pm
+cnpm install axios
+cnpm install vuex
+
+vuex
+什么是vuex?
+是数据状态管理   组件A中数据变化  在B、C中随之变化
+多个组件之间共享数据
+创建vuex 步骤 
+1、在src目录下创建一个store文件夹 里面创建一个index.js
+2、在main.js中引入  在vue 实例中 注册
+3、在组件中 $store.state.数据属性名
+
+
+作业
+1 使用axios 获取数据 并渲染到页面
+2 点击商品列表，跳转到详情页
+3 在详情页中，点击加入购物车，跳转到购物车页面 购物车使用 vuex保存  刷新不会消失 
+4 在购物车页面中 实现数量 加减
+
+
+0318pm
+1、使用vuex-persist
+cnpm install vuex-persist
+步骤 
+（1） 在 vuex中导入
+import VuePersist from 'vuex-persist'
+（2）、创建VuePersist 声明 存储方式
+const vuexLocal=new VuePersist({
+    storage:window.localStorage
+})
+
+（3）在插件中声明 plugins:[vuexLocal.plugin]
+
+2、modules：
+作用：引入一个外部的 store 。把每个功能的数据，集中写在 自己的store（index.js）
+更容易管理，更容易协作开发
+
+3、actions: 和mutations类似，不过里面可以含有异步操作。最后还是要把数据的改变提交给mutations  。 使用dispatch提交
+
+mutations:用来改变state里面的数据的唯一方式。必须是同步操作。使用commit提交
+
+getters:相当于计算属性，可以根据state里面的数据变化 获得新的计算结果
+
+state:数据的声明
+
+plugins:使用插件
+
+4、mintui
+cnpm install mint-ui -S
+
+
+项目知识点总结
+0319am
+1、fastclick
+cnpm install fastclick
+解决300毫秒延迟
+
+if('addEventListener' in document){
+	document.addEventListener('DOMContentLoaded',function(){
+	FastClick.attach(document.body)
+},false）
+}
+
+
+2、项目打包：执行 npm run build 这个指令   生成一个dist文件夹  这个文件夹就是我们最终大包的项目 
+ webpack会把我们的vue项目 打包成 普通的html+js+css项目  并且进行压缩  es6=>es5
+ 把js 会压缩成一个包 当网络请求的时候会 都下载过来这样消耗性能
+
+
+
+
+3、
+路由懒加载  按需加载会按照路由模块把我们的项目进行打包。 这样每次加载不同的路由时，都会加载对应路由下所用到的静态资源（js css 文件）
+
+const home = r => require.ensure([], () => r(require('../page/home/home')), 'home')
+
+const city = resolve => require(['../page/city/city'],resolve)
+
+
+
+
+4、
+组件切换的过渡效果
+组件切换的过度效果
+transition 的封装组件 name="名字"
+	
+.名字-enter-active, .名字-leave-active {  进入和离开的过程
+	  	transition: opacity 0.3s;
+	}
+	
+.名字-enter, .名字-leave{          完全进入 完全离开
+	  	
+opacity: 0;
+	}
+
+
+v-enter          组件没进入之前的状态
+v-enter-active   组件正在过渡的状态
+
+v-leave:         定义离开后的状态。
+v-leave-active： 组件正在离开的状态。
+
+
+
+
+
+
+
+
+
+
+
+
+0319pm 
+1 、
+获取当前城市
+接口地址：http://elm.cangdu.org/v1/cities?type=guess
+
+请求方式：get
+
+返回字段：自己看
+
+2、
+ 获取热门城市
+接口地址:http://elm.cangdu.org/v1/cities?type=hot
+
+请求方式:get
+
+返回字段：自己看
+
+
+3、
+ 获取所有城市
+接口地址：http://elm.cangdu.org/v1/cities?type=group
+
+请求方式：get
+
+返回字段：自己看
+
+4 、
+根据id获取城市名称
+接口地址：http://elm.cangdu.org/v1/cities/id的值
+请求方式：get
+
+
+5 、
+根据输入关键词查找地名
+接口地址：http://elm.cangdu.org/v1/pois?type=search&city_id=3&keyword=关键词
+
+请求参数：
+type: search 固定值
+city_id: 城市id
+keyword: 搜索的关键词
+6 、
+根据经纬度搜索附近商家
+地址：http://elm.cangdu.org/v2/index_entry?geohash=39.78493,116.49476&group_type=1&flags[]=F
+
+参数：
+geohash: 39.78493,116.49476（上个页面传过来的geohash）
+group_type: 1
+flags[]: 
+F
+
+返回结果 
+中的一条数据
+description: "足不出户，便利回家"
+icon_url: ""
+id: 10
+image_url: "/0/da/f42235e6929a5cb0e7013115ce78djpeg.jpeg"
+is_in_serving: true
+link: "eleme://restaurants?filter_key=%7B%22category_schema%22%3A%7B%22category_name%22%3A%22%5Cu5546%5Cu8d85%5Cu4fbf%5Cu5229%22%2C
+title: "商超便利"
+title_color: ""
+
+
+title 是轮播图的标题
+
+image_url 是轮播图的小图标  图片前面要加 https://fuss10.elemecdn.com＋image_url
+
+
+7、
+附近商家接口
+http://elm.cangdu.org/shopping/restaurants?latitude=31.222654&longitude=121.395252&offset=0&limit=20&extras[]=activities&keyword=&restaurant_category_id=&restaurant_category_ids[]=&order_by=&delivery_mode[]=
+
+piecewise_agent_fee: {tips: "配送费约￥5"}
+rating: 4.7
+delivery_mode: {color: "57A9FF", id: 1, is_solid: true, text: "蜂鸟专送"}
+distance: "1383.6公里"
+supports: [{description: "已加入“外卖保”计划，食品安全有保障", icon_color: "999999", icon_name: "保", id: 7, name: "........
+order_lead_time: "14小时45分钟"
+recent_order_num: 106
+rating_count: 961
+float_minimum_order_amount: 20
+图片前面要加http://elm.cangdu.org/img/
+
+font标签
+1、https://fontawesome.com/?from=io
+
+
+2、安装font-awesome
+    a、npm install font-awesome 
+    b、main.js 文件中 import 'font-awesome/css/font-awesome.css'
+    c、使用 在需要的地方 <span class="fa fa-xxx"></span>
+cnpm install swiper --save-dev
+
+0322pm
+商家接口：http://elm.cangdu.org/shopping/v2/menu?restaurant_id=1
+
+description: "发111"
+image_path: "166ccefb30b20519.jpg" 
+图片前面要加：http://elm.cangdu.org/img/
+name: "我问问"
+activity: {image_text: "的", icon_color: "f07373", image_text_color: "f1884f"}
+好评率：｛｝｛｝: 85
+tips: "140评价 月售404份"
+specfoods: [{specs_name: "默认", name: "我问问", item_id: 1438, sku_id: 5234, food_id: 5234, restaurant_id: 1,…},…]
+specfoods:下的price: 20
+description: "是的分身乏术放"
+name: "热销榜"
+
+
+position: sticky;
+    top: 0;
+
+promotion_info: "欢迎光临，用餐高峰请提前下单，谢谢"
+piecewise_agent_fee: {tips: "配送费约￥5"}
+activities: [{icon_name: "减", name: "满减优惠", description: "满30减5，满60减8"
+
+
+cnpm install sass-loader node-sass vue-style-loader --D
+cnpm install axios
+cnpm install vuex
+cnpm install mint-ui -S
+cnpm install vuex-persist
+cnpm install fastclick
+
+
+http://cnodejs.org/api/v1
+
+
+
